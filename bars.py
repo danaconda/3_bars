@@ -2,7 +2,8 @@ import json
 
 
 def load_data(filepath):
-    pass
+    with open(filepath) as file_handler:
+        return json.load(file_handler)
 
 
 def get_biggest_bar(data):
@@ -18,4 +19,7 @@ def get_closest_bar(data, longitude, latitude):
 
 
 if __name__ == '__main__':
-    pass
+    data = load_data('jsonbars.json')
+    print('The biggest bar {0}'.format(get_biggest_bar(data)))
+    print('The smallest bar {0}'.format(get_smallest_bar(data)))
+    print('The closest bar {0}'.format(get_closest_bar(data)))
